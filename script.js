@@ -8,7 +8,7 @@ const recipes = [
     description: "A tropical classic balancing aged rum, citrus, almond, and orange.",
     ingredients: [
       "1 oz light rum",
-      "1 oz dark rum"
+      "1 oz dark rum",
       "¾ oz fresh lime juice",
       "½ oz orange curaçao",
       "½ oz orgeat syrup",
