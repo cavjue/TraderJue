@@ -26,24 +26,22 @@ const recipes = [
   
   {
     id: 2,
-    name: "TBD",
+    name: "Tonga Punch",
     category: "rum",
     tags: ["rum", "refreshing"],
     emoji: "🍍",
     description: "A bright, juicy pineapple cocktail with lime and coconut.",
     ingredients: [
-      "2 oz white rum",
-      "2 oz pineapple juice",
-      "1 oz coconut cream",
-      "¾ oz fresh lime juice",
-      "½ oz simple syrup",
-      "Ice"
+    "1 bottles light Puerto Rican rum",
+    "6 oz brandy",
+    "6 oz orange Curaçao"
+    "6 oz Passionola (passion-fruit liqueur)"
+    "0.5 quart fresh lemon juice"
+    "3/4 pints orange juice"
+    "3 oz grenadine"
     ],
     instructions: [
-      "Add all ingredients to a cocktail shaker with ice.",
-      "Shake vigorously for 10–15 seconds.",
-      "Strain into a chilled glass filled with fresh ice.",
-      "Garnish with a pineapple wedge."
+      "Blend together in large pitcher with ice.
     ],
     garnish: "Pineapple wedge and lime wheel"
   },
