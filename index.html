@@ -1,9 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tropical cocktail recipes inspired by sunny beaches, fresh fruit, and island nights.">
+  <title>Island Sips | Tropical Cocktail Recipes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>Hello, World! My site works.</h1>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#" class="logo">Island Sips</a>
+
+      <div class="nav-links">
+        <a href="#recipes">Recipes</a>
+        <a href="#about">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content container">
+        <p class="eyebrow">Tropical cocktail recipes</p>
+        <h1>A little sunshine<br>in every sip.</h1>
+        <p class="hero-text">
+          Bright fruit, fresh citrus, and island-inspired cocktails
+          made for slow afternoons and warm nights.
+        </p>
+        <a href="#recipes" class="button">Explore recipes</a>
+      </div>
+
+      <div class="hero-decoration hero-palm">🌴</div>
+      <div class="hero-decoration hero-pineapple">🍍</div>
+    </section>
+
+    <!-- Recipes -->
+    <section id="recipes" class="recipes-section container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The collection</p>
+          <h2>Find your island drink</h2>
+        </div>
+
+        <input
+          type="search"
+          id="searchInput"
+          class="search"
+          placeholder="Search cocktails..."
+          aria-label="Search cocktails"
+        >
+      </div>
+
+      <div class="filter-buttons">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="rum">Rum</button>
+        <button class="filter" data-filter="tequila">Tequila</button>
+        <button class="filter" data-filter="vodka">Vodka</button>
+        <button class="filter" data-filter="refreshing">Refreshing</button>
+      </div>
+
+      <div id="recipeGrid" class="recipe-grid"></div>
+
+      <p id="noResults" class="no-results" hidden>
+        No cocktails found. Try another search.
+      </p>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about-section">
+      <div class="about-content container">
+        <p class="eyebrow">About Island Sips</p>
+        <h2>Escape without leaving home.</h2>
+        <p>
+          Island Sips is a collection of tropical-inspired cocktails
+          designed around fresh flavors, simple techniques, and
+          vacation-worthy presentation.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <span>© 2026 Island Sips</span>
+      <span>Made for sunny days.</span>
+    </div>
+  </footer>
+
+  <!-- Recipe Modal -->
+  <div id="recipeModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <article class="modal-card">
+      <button class="close-modal" data-close-modal aria-label="Close recipe">
+        &times;
+      </button>
+
+      <div id="modalEmoji" class="modal-emoji"></div>
+      <p id="modalCategory" class="eyebrow"></p>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription" class="modal-description"></p>
+
+      <div class="recipe-details">
+        <div>
+          <h3>Ingredients</h3>
+          <ul id="modalIngredients"></ul>
+        </div>
+
+        <div>
+          <h3>Instructions</h3>
+          <ol id="modalInstructions"></ol>
+        </div>
+      </div>
+
+      <div class="garnish">
+        <strong>Garnish:</strong>
+        <span id="modalGarnish"></span>
+      </div>
+    </article>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
