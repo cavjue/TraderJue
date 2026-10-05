@@ -1,5 +1,5 @@
 const recipes = [
-    {
+   {
     id: 1,
     name: "Classic Mai Tai",
     category: "rum",
