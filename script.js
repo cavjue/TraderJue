@@ -1,7 +1,32 @@
 const recipes = [
-  {
+    {
     id: 1,
-    name: "Pineapple Paradise",
+    name: "Classic Mai Tai",
+    category: "rum",
+    tags: ["rum"],
+    emoji: "🍹",
+    description: "A tropical classic balancing aged rum, citrus, almond, and orange.",
+    ingredients: [
+      "1 oz light rum",
+      "1 oz dark rum"
+      "¾ oz fresh lime juice",
+      "½ oz orange curaçao",
+      "½ oz orgeat syrup",
+      "¼ oz rich simple syrup",
+      "Crushed ice"
+    ],
+    instructions: [
+      "Add all ingredients (including lime shells) to a shaker with ice.",
+      "Shake to combine and chill.",
+      "Pour unstrained into a rocks glass.",
+      "Fill with crushed ice."
+    ],
+    garnish: "Mint sprig and lime shell"
+  },
+  
+  {
+    id: 2,
+    name: "TBD",
     category: "rum",
     tags: ["rum", "refreshing"],
     emoji: "🍍",
@@ -24,8 +49,8 @@ const recipes = [
   },
 
   {
-    id: 2,
-    name: "Mango Sunset",
+    id: 3,
+    name: "TBD",
     category: "tequila",
     tags: ["tequila", "refreshing"],
     emoji: "🥭",
@@ -48,8 +73,8 @@ const recipes = [
   },
 
   {
-    id: 3,
-    name: "Guava Breeze",
+    id: 4,
+    name: "TBD",
     category: "vodka",
     tags: ["vodka", "refreshing"],
     emoji: "🌺",
@@ -73,32 +98,8 @@ const recipes = [
   },
 
   {
-    id: 4,
-    name: "Classic Mai Tai",
-    category: "rum",
-    tags: ["rum"],
-    emoji: "🍹",
-    description: "A tropical classic balancing aged rum, citrus, almond, and orange.",
-    ingredients: [
-      "2 oz aged rum",
-      "¾ oz fresh lime juice",
-      "½ oz orange curaçao",
-      "½ oz orgeat syrup",
-      "¼ oz rich simple syrup",
-      "Crushed ice"
-    ],
-    instructions: [
-      "Add all ingredients to a shaker with ice.",
-      "Shake briefly to combine and chill.",
-      "Pour unstrained into a rocks glass.",
-      "Fill with crushed ice."
-    ],
-    garnish: "Mint sprig and lime shell"
-  },
-
-  {
     id: 5,
-    name: "Passion Fruit Punch",
+    name: "TBD",
     category: "rum",
     tags: ["rum", "refreshing"],
     emoji: "🥥",
@@ -122,7 +123,7 @@ const recipes = [
 
   {
     id: 6,
-    name: "Coconut Cooler",
+    name: "TBD",
     category: "vodka",
     tags: ["vodka", "refreshing"],
     emoji: "🥥",
