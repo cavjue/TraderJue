@@ -75,7 +75,7 @@ body {
 /* Hero */
 
 .hero {
-  min-height: 680px;
+  min-height: 100px;
   position: relative;
   overflow: hidden;
   display: flex;
