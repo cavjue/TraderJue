@@ -1,11 +1,11 @@
 const recipes = [
-   {
+  {
     id: 1,
     name: "Classic Mai Tai",
     category: "rum",
-    tags: ["rum"],
+    tags: ["rum", "classic"],
     emoji: "🍹",
-    description: "A tropical classic balancing aged rum, citrus, almond, and orange.",
+    description: "A balanced rum cocktail with lime, orange, and almond notes.",
     ingredients: [
       "1 oz light rum",
       "1 oz dark rum",
@@ -16,43 +16,43 @@ const recipes = [
       "Crushed ice"
     ],
     instructions: [
-      "Add all ingredients (including lime shells) to a shaker with ice.",
-      "Shake to combine and chill.",
-      "Pour unstrained into a rocks glass.",
-      "Fill with crushed ice."
+      "Add all ingredients to a shaker with ice.",
+      "Shake until chilled.",
+      "Pour into a rocks glass over crushed ice.",
+      "Garnish with a mint sprig and lime shell."
     ],
     garnish: "Mint sprig and lime shell"
   },
-  
   {
     id: 2,
-    name: "Tonga Punch",
+    name: "Pineapple Cooler",
     category: "rum",
     tags: ["rum", "refreshing"],
     emoji: "🍍",
-    description: "A bright, juicy pineapple cocktail with lime and coconut.",
+    description: "A bright, juicy blend of pineapple, citrus, and tropical rum.",
     ingredients: [
-    "1 bottles light Puerto Rican rum",
-    "6 oz brandy",
-    "6 oz orange Curaçao"
-    "6 oz Passionola (passion-fruit liqueur)"
-    "0.5 quart fresh lemon juice"
-    "3/4 pints orange juice"
-    "3 oz grenadine"
+      "1½ oz white rum",
+      "2 oz pineapple juice",
+      "¾ oz lime juice",
+      "½ oz simple syrup",
+      "Club soda",
+      "Ice"
     ],
     instructions: [
-      "Blend together in large pitcher with ice.
+      "Shake rum, pineapple juice, lime, and syrup with ice.",
+      "Strain into a tall glass over fresh ice.",
+      "Top with a splash of club soda.",
+      "Stir gently and serve."
     ],
     garnish: "Pineapple wedge and lime wheel"
   },
-
   {
     id: 3,
-    name: "TBD",
+    name: "Mango Margarita",
     category: "tequila",
-    tags: ["tequila", "refreshing"],
+    tags: ["tequila", "bright"],
     emoji: "🥭",
-    description: "Sweet mango meets tart lime and tequila in this sunset-colored sipper.",
+    description: "Sweet mango meets tart lime for an easy, sunny sip.",
     ingredients: [
       "2 oz blanco tequila",
       "2 oz mango nectar",
@@ -65,82 +65,33 @@ const recipes = [
       "Add tequila, mango nectar, lime juice, agave, and bitters to a shaker.",
       "Fill with ice and shake until chilled.",
       "Strain over fresh ice.",
-      "Add a small splash of sparkling water if desired."
+      "Finish with a small splash of sparkling water if desired."
     ],
     garnish: "Mango slice and chili-salt rim"
   },
-
   {
     id: 4,
-    name: "TBD",
+    name: "Guava Spritz",
     category: "vodka",
-    tags: ["vodka", "refreshing"],
+    tags: ["vodka", "fresh"],
     emoji: "🌺",
-    description: "Floral guava, citrus, and mint make this an easy warm-weather favorite.",
+    description: "Floral guava and citrus keep this drink crisp and easy to love.",
     ingredients: [
       "1½ oz vodka",
       "2 oz guava juice",
       "¾ oz fresh lime juice",
       "½ oz simple syrup",
-      "4–5 fresh mint leaves",
+      "4 fresh mint leaves",
       "Club soda",
       "Ice"
     ],
     instructions: [
       "Gently muddle mint and simple syrup in a glass.",
       "Add vodka, guava juice, and lime juice.",
-      "Fill the glass with ice.",
-      "Top with club soda and stir gently."
+      "Fill with ice and top with club soda.",
+      "Stir gently and garnish."
     ],
     garnish: "Fresh mint and edible flower"
-  },
-
-  {
-    id: 5,
-    name: "TBD",
-    category: "rum",
-    tags: ["rum", "refreshing"],
-    emoji: "🥥",
-    description: "Tangy passion fruit and orange combine with rum for a party-ready punch.",
-    ingredients: [
-      "2 oz dark rum",
-      "1½ oz passion fruit juice",
-      "1 oz orange juice",
-      "½ oz lime juice",
-      "½ oz grenadine",
-      "Ice"
-    ],
-    instructions: [
-      "Add rum, passion fruit juice, orange juice, and lime juice to a shaker.",
-      "Shake with ice until chilled.",
-      "Pour into a tall glass filled with ice.",
-      "Slowly add grenadine for a layered effect."
-    ],
-    garnish: "Passion fruit half and orange wheel"
-  },
-
-  {
-    id: 6,
-    name: "TBD",
-    category: "vodka",
-    tags: ["vodka", "refreshing"],
-    emoji: "🥥",
-    description: "Creamy coconut, bright lime, and vodka create an effortless beach drink.",
-    ingredients: [
-      "1½ oz vodka",
-      "2 oz coconut water",
-      "1 oz pineapple juice",
-      "½ oz lime juice",
-      "¼ oz simple syrup",
-      "Ice"
-    ],
-    instructions: [
-      "Add vodka, coconut water, pineapple juice, lime juice, and syrup to a shaker.",
-      "Shake with ice.",
-      "Strain into a tall glass over fresh ice.",
-      "Top with a little coconut water."
-    ],
-    garnish: "Lime wheel and toasted coconut"
   }
 ];
 
@@ -172,7 +123,8 @@ function renderRecipes() {
       recipe.name,
       recipe.category,
       recipe.description,
-      ...recipe.tags
+      ...recipe.tags,
+      ...recipe.ingredients
     ]
       .join(" ")
       .toLowerCase();
@@ -186,14 +138,10 @@ function renderRecipes() {
 
   filteredRecipes.forEach((recipe) => {
     const card = document.createElement("article");
-
     card.className = "recipe-card";
 
     card.innerHTML = `
-      <div class="recipe-image">
-        <span aria-hidden="true">${recipe.emoji}</span>
-      </div>
-
+      <div class="recipe-image" aria-hidden="true">${recipe.emoji}</div>
       <div class="recipe-info">
         <h3>${recipe.name}</h3>
         <p>${recipe.description}</p>
@@ -202,7 +150,6 @@ function renderRecipes() {
     `;
 
     card.addEventListener("click", () => openRecipe(recipe));
-
     recipeGrid.appendChild(card);
   });
 
@@ -239,7 +186,6 @@ function capitalize(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
-// Filtering
 document.querySelectorAll(".filter").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".filter").forEach((item) => {
@@ -248,25 +194,20 @@ document.querySelectorAll(".filter").forEach((button) => {
 
     button.classList.add("active");
     activeFilter = button.dataset.filter;
-
     renderRecipes();
   });
 });
 
-// Search
 searchInput.addEventListener("input", renderRecipes);
 
-// Close modal
 document.querySelectorAll("[data-close-modal]").forEach((element) => {
   element.addEventListener("click", closeModal);
 });
 
-// Escape key closes modal
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeModal();
   }
 });
 
-// Initial render
 renderRecipes();

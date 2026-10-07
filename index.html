@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tropical cocktail recipes inspired by sunny beaches, fresh fruit, and island nights.">
-  <title>Trader Jue | Tropical Cocktail Recipes</title>
+  <meta name="description" content="Simple tropical cocktail recipes with bright flavors and easy ingredients.">
+  <title>Trader Jue | Simple Tropical Cocktails</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
@@ -12,10 +12,9 @@
 </head>
 
 <body>
-
   <header class="site-header">
-    <nav class="navbar container">
-      <a href="#" class="logo">Trader Jue</a>
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="#top" class="logo">Trader Jue</a>
 
       <div class="nav-links">
         <a href="#recipes">Recipes</a>
@@ -24,28 +23,36 @@
     </nav>
   </header>
 
-  <main>
-
-    <!-- Hero -->
+  <main id="top">
     <section class="hero">
-      <div class="hero-content container">
-        <p class="eyebrow">Tropical cocktail recipes</p>
-        <p class="hero-text">
-          Bright fruit, fresh citrus, and island-inspired cocktails
-          made for slow afternoons and warm nights.
-        </p>
-      </div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Simple tropical drinks</p>
+          <h1>Easy cocktails for warm days.</h1>
+          <p class="hero-text">
+            Bright fruit, crisp citrus, and relaxed island flavor — all in a few easy pours.
+          </p>
 
-      <div class="hero-decoration hero-palm">🌴</div>
-      <div class="hero-decoration hero-pineapple">🍍</div>
+          <div class="hero-actions">
+            <a class="button" href="#recipes">Explore recipes</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Featured recipe">
+          <div class="mini-card">
+            <span class="mini-emoji" aria-hidden="true">🍹</span>
+            <p>Featured</p>
+            <h3>Classic Mai Tai</h3>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Recipes -->
     <section id="recipes" class="recipes-section container">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">The collection</p>
-          <h2>Find your island drink</h2>
+          <p class="eyebrow dark">Recipe list</p>
+          <h2>Pick your favorite pour.</h2>
         </div>
 
         <input
@@ -57,12 +64,11 @@
         >
       </div>
 
-      <div class="filter-buttons">
+      <div class="filter-buttons" aria-label="Filter recipes">
         <button class="filter active" data-filter="all">All</button>
         <button class="filter" data-filter="rum">Rum</button>
         <button class="filter" data-filter="tequila">Tequila</button>
         <button class="filter" data-filter="vodka">Vodka</button>
-        <button class="filter" data-filter="refreshing">Refreshing</button>
       </div>
 
       <div id="recipeGrid" class="recipe-grid"></div>
@@ -72,18 +78,14 @@
       </p>
     </section>
 
-    <!-- About -->
     <section id="about" class="about-section">
       <div class="about-content container">
-        <p class="eyebrow">About Trader Jue</p>
+        <p class="eyebrow">About</p>
         <p>
-          Trader Jue is a collection of tropical-inspired cocktails
-          designed around fresh flavors, simple techniques, and
-          vacation-worthy presentation.
+          Trader Jue keeps things simple: easy recipes, clean flavors, and a little island energy for everyday sipping.
         </p>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
@@ -93,7 +95,6 @@
     </div>
   </footer>
 
-  <!-- Recipe Modal -->
   <div id="recipeModal" class="modal" aria-hidden="true">
     <div class="modal-backdrop" data-close-modal></div>
 
@@ -102,7 +103,7 @@
         &times;
       </button>
 
-      <div id="modalEmoji" class="modal-emoji"></div>
+      <div id="modalEmoji" class="modal-emoji" aria-hidden="true"></div>
       <p id="modalCategory" class="eyebrow"></p>
       <h2 id="modalTitle"></h2>
       <p id="modalDescription" class="modal-description"></p>
