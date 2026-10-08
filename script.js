@@ -238,4 +238,26 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+(function () {
+  const banner = document.getElementById("cookieBanner");
+  if (!banner) return;
+
+  const acceptedKey = "traderjue-cookie-consent";
+  const consent = localStorage.getItem(acceptedKey);
+
+  if (consent === "accepted" || consent === "declined") {
+    banner.classList.add("hidden");
+  }
+
+  document.getElementById("acceptCookies")?.addEventListener("click", function () {
+    localStorage.setItem(acceptedKey, "accepted");
+    banner.classList.add("hidden");
+  });
+
+  document.getElementById("declineCookies")?.addEventListener("click", function () {
+    localStorage.setItem(acceptedKey, "declined");
+    banner.classList.add("hidden");
+  });
+})();
+
 renderRecipes();
