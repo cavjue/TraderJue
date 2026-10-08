@@ -94,7 +94,7 @@ const recipes = [
     ],
     garnish: "Fresh mint and edible flower"
   },
-    {
+  {
     id: 5,
     name: "Singapore Sling",
     category: "gin",
@@ -120,6 +120,32 @@ const recipes = [
       "Stir gently and garnish."
     ],
     garnish: "Orange slice and a cherry"
+  },
+  {
+    id: 6,
+    name: "Zombie",
+    category: "rum",
+    tags: ["rum", "tiki", "strong"],
+    emoji: "☠️",
+    description: "A legendary and potent tiki cocktail with three rums, falernum, and Don's Mix.",
+    ingredients: [
+      "1.5 oz Jamaican dark rum",
+      "1.5 oz Puerto Rican gold rum",
+      "1 oz Demerara rum",
+      "¾ oz fresh lime juice",
+      "½ oz falernum",
+      "½ oz Don's Mix (2 parts fresh grapefruit juice and 1 part cinnamon syrup)",
+      "1 tsp grenadine syrup",
+      "1 dash Angostura bitters",
+      "6 drops Pernod"
+    ],
+    instructions: [
+      "Add all ingredients to a shaker with ice.",
+      "Shake vigorously until well chilled.",
+      "Strain into a tall glass over crushed ice.",
+      "Stir gently and garnish."
+    ],
+    garnish: "Pineapple wedge and cherry"
   }
 ];
 
@@ -246,12 +272,10 @@ function initializeCookieBanner() {
   const acceptedKey = "traderjue-cookie-consent";
   const consent = localStorage.getItem(acceptedKey);
 
-  // Hide banner if already accepted or declined
   if (consent === "accepted" || consent === "declined") {
     banner.classList.add("hidden");
   }
 
-  // Accept button
   const acceptBtn = document.getElementById("acceptCookies");
   if (acceptBtn) {
     acceptBtn.addEventListener("click", function () {
@@ -260,7 +284,6 @@ function initializeCookieBanner() {
     });
   }
 
-  // Decline button
   const declineBtn = document.getElementById("declineCookies");
   if (declineBtn) {
     declineBtn.addEventListener("click", function () {
