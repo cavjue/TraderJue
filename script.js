@@ -238,26 +238,37 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-(function () {
+// Cookie Banner Logic
+function initializeCookieBanner() {
   const banner = document.getElementById("cookieBanner");
   if (!banner) return;
 
   const acceptedKey = "traderjue-cookie-consent";
   const consent = localStorage.getItem(acceptedKey);
 
+  // Hide banner if already accepted or declined
   if (consent === "accepted" || consent === "declined") {
     banner.classList.add("hidden");
   }
 
-  document.getElementById("acceptCookies")?.addEventListener("click", function () {
-    localStorage.setItem(acceptedKey, "accepted");
-    banner.classList.add("hidden");
-  });
+  // Accept button
+  const acceptBtn = document.getElementById("acceptCookies");
+  if (acceptBtn) {
+    acceptBtn.addEventListener("click", function () {
+      localStorage.setItem(acceptedKey, "accepted");
+      banner.classList.add("hidden");
+    });
+  }
 
-  document.getElementById("declineCookies")?.addEventListener("click", function () {
-    localStorage.setItem(acceptedKey, "declined");
-    banner.classList.add("hidden");
-  });
-})();
+  // Decline button
+  const declineBtn = document.getElementById("declineCookies");
+  if (declineBtn) {
+    declineBtn.addEventListener("click", function () {
+      localStorage.setItem(acceptedKey, "declined");
+      banner.classList.add("hidden");
+    });
+  }
+}
 
 renderRecipes();
+initializeCookieBanner();
