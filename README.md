@@ -1,2 +1,2 @@
 https://cavjue.github.io/TraderJue/
-traderjue.com
+www.traderjue.com
