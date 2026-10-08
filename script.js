@@ -48,26 +48,27 @@ const recipes = [
   },
   {
     id: 3,
-    name: "Mango Margarita",
+    name: "Pinky Gonzalez",
     category: "tequila",
-    tags: ["tequila", "bright"],
+    tags: ["tequila"],
     emoji: "🥭",
-    description: "Sweet mango meets tart lime for an easy, sunny sip.",
+    description: "Tequila take on the Mai Tai",
     ingredients: [
-      "2 oz blanco tequila",
-      "2 oz mango nectar",
+      "1 oz blanco tequila",
+      "1 oz reposado tequila",
       "¾ oz fresh lime juice",
-      "½ oz agave syrup",
-      "2 dashes orange bitters",
+      "½ oz orgeat syrup",
+      "½ oz orange curacao",
+      "1/4 oz agave nectar",
       "Ice"
     ],
     instructions: [
-      "Add tequila, mango nectar, lime juice, agave, and bitters to a shaker.",
+      "Add all ingredients to a shaker.",
       "Fill with ice and shake until chilled.",
       "Strain over fresh ice.",
       "Finish with a small splash of sparkling water if desired."
     ],
-    garnish: "Mango slice and chili-salt rim"
+    garnish: "Mint sprig and a spent half lime shell"
   },
   {
     id: 4,
@@ -92,6 +93,33 @@ const recipes = [
       "Stir gently and garnish."
     ],
     garnish: "Fresh mint and edible flower"
+  },
+    {
+    id: 5,
+    name: "Singapore Sling",
+    category: "gin",
+    tags: ["gin", "sweet"],
+    emoji: "🌺",
+    description: "",
+    ingredients: [
+      "1 1/2 oz gin",
+      "1/2 oz cherry liquer",
+      "1/4 oz cointreau",
+      "1/4 oz benedictine",
+      "2 oz pineapple juice",
+      "1/2 oz lime juice",
+      "1 dash angostura bitters",
+      "2 oz club soda",
+      "Ice"
+    ],
+    instructions: [
+      "Add the gin, cherry liqueur, Cointreau, Bénédictine, pineapple juice, lime juice, and bitters in a shaker.",
+      "Shake well until cold.",
+      "Strain into tall glass (highball or Collins).",
+      "Fill with ice and top with club soda.",
+      "Stir gently and garnish."
+    ],
+    garnish: "Orange slice and a cherry"
   }
 ];
 
