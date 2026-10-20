@@ -5,23 +5,25 @@ const recipes = [
     category: "rum",
     tags: ["rum", "classic"],
     emoji: "🍹",
-    description: "A balanced rum cocktail with lime, orange, and almond notes.",
+    description: "Originally created by Trader Vic in the 1940s, this is the epitome of tiki cocktails.",
     ingredients: [
       "1 oz light rum",
       "1 oz dark rum",
-      "¾ oz fresh lime juice",
-      "½ oz orange curaçao",
-      "½ oz orgeat syrup",
-      "¼ oz rich simple syrup",
+      "1 oz fresh lime juice",
+      "3/4 oz orange curaçao",
+      "1/2 oz orgeat syrup",
+      "1/4 oz simple syrup",
       "Crushed ice"
     ],
     instructions: [
       "Add all ingredients to a shaker with ice.",
       "Shake until chilled.",
       "Pour into a rocks glass over crushed ice.",
-      "Garnish with a mint sprig and lime shell."
+      "Garnish with a mint sprig and lime shell.",
+      "Float with 1/4 oz - 1/2 oz dark rum."
     ],
-    garnish: "Mint sprig and lime shell"
+    garnish: "Mint sprig and lime shell",
+    source: "https://tradervicsrum.com/recipes/"
   },
   {
     id: 2,
@@ -146,7 +148,35 @@ const recipes = [
       "Stir gently and garnish."
     ],
     garnish: "Pineapple wedge and cherry"
+  },
+
+  {
+    id: 7,
+    name: "Zombie",
+    category: "rum",
+    tags: ["rum", "tiki", "strong"],
+    emoji: "☠️",
+    description: "A legendary and potent tiki cocktail with three rums, falernum, and Don's Mix.",
+    ingredients: [
+      "1.5 oz Jamaican dark rum",
+      "1.5 oz Puerto Rican gold rum",
+      "1 oz Demerara rum",
+      "¾ oz fresh lime juice",
+      "½ oz falernum",
+      "½ oz Don's Mix (2 parts fresh grapefruit juice and 1 part cinnamon syrup)",
+      "1 tsp grenadine syrup",
+      "1 dash Angostura bitters",
+      "6 drops Pernod"
+    ],
+    instructions: [
+      "Add all ingredients to a shaker with ice.",
+      "Shake vigorously until well chilled.",
+      "Strain into a tall glass over crushed ice.",
+      "Stir gently and garnish."
+    ],
+    garnish: "Pineapple wedge and cherry"
   }
+
 ];
 
 const recipeGrid = document.getElementById("recipeGrid");
@@ -161,6 +191,7 @@ const modalDescription = document.getElementById("modalDescription");
 const modalIngredients = document.getElementById("modalIngredients");
 const modalInstructions = document.getElementById("modalInstructions");
 const modalGarnish = document.getElementById("modalGarnish");
+const modalSource = document.getElementById("modalSource");
 
 let activeFilter = "all";
 
@@ -216,6 +247,7 @@ function openRecipe(recipe) {
   modalTitle.textContent = recipe.name;
   modalDescription.textContent = recipe.description;
   modalGarnish.textContent = recipe.garnish;
+  modalSource.textContent = recipe.source;
 
   modalIngredients.innerHTML = recipe.ingredients
     .map((ingredient) => `<li>${ingredient}</li>`)
