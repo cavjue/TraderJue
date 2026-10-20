@@ -192,6 +192,7 @@ const modalIngredients = document.getElementById("modalIngredients");
 const modalInstructions = document.getElementById("modalInstructions");
 const modalGarnish = document.getElementById("modalGarnish");
 const modalSource = document.getElementById("modalSource");
+const sourceBlock = document.querySelector(".source");
 
 let activeFilter = "all";
 
@@ -247,7 +248,25 @@ function openRecipe(recipe) {
   modalTitle.textContent = recipe.name;
   modalDescription.textContent = recipe.description;
   modalGarnish.textContent = recipe.garnish;
-  modalSource.textContent = recipe.source;
+
+  const hasSource = typeof recipe.source === "string" && recipe.source.trim() !== "";
+
+  if (sourceBlock) {
+    sourceBlock.hidden = !hasSource;
+  }
+
+  if (hasSource) {
+    modalSource.href = recipe.source;
+    try {
+      const sourceUrl = new URL(recipe.source);
+      modalSource.textContent = sourceUrl.hostname.replace(/^www\./, "");
+    } catch {
+      modalSource.textContent = recipe.source;
+    }
+  } else {
+    modalSource.removeAttribute("href");
+    modalSource.textContent = "";
+  }
 
   modalIngredients.innerHTML = recipe.ingredients
     .map((ingredient) => `<li>${ingredient}</li>`)
