@@ -29,82 +29,21 @@
   </header>
 
   <main id="top">
-    <section id="recipes" class="recipes-section container">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow dark">Recipe list</p>
-        </div>
-
-        <input
-          type="search"
-          id="searchInput"
-          class="search"
-          placeholder="Search cocktails..."
-          aria-label="Search cocktails"
-        >
-      </div>
-
-      <div class="filter-buttons" aria-label="Filter recipes">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="rum">Rum</button>
-        <button class="filter" data-filter="tequila">Tequila</button>
-        <button class="filter" data-filter="vodka">Vodka</button>
-      </div>
-
-      <div id="recipeGrid" class="recipe-grid"></div>
-
-      <p id="noResults" class="no-results" hidden>
-        No cocktails found. Try another search.
-      </p>
+    <section id="recipes">
+      <ul>
+        <li><a href="Recipes/banana_daiquiri.html">Banana Daiquiri</a></li>
+        <li><a href="Recipes/cranberry_mojito.html">Cranberry Mojito</a></li>
+        <li><a href="Recipes/frozen_coconut_mojito.html">Frozen Coconut Mojito</a></li>
+        <li><a href="Recipes/guava_spritz.html">Guava Spritz</a></li>
+        <li><a href="Recipes/mai_tai.html">Mai Tai</a></li>
+        <li><a href="Recipes/pineapple_cooler.html">Pineapple Cooler</a></li>
+        <li><a href="Recipes/pinky_gonzalez.html">Pinky Gonzalez</a></li>
+        <li><a href="Recipes/singapore_sling.html">Singapore Sling</a></li>
+        <li><a href="Recipes/watermelon_cosmopolitan.html">Watermelon Cosmopolitan</a></li>
+        <li><a href="Recipes/white_cosmopolitan.html">White Cosmopolitan</a></li>
+        <li><a href="Recipes/zombie.html">Zombie</a></li>
+      </ul>
     </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <span>© 2026 Trader Jue</span>
-      <span>Made for sunny days.</span>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <div id="recipeModal" class="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
-
-    <article class="modal-card">
-      <button class="close-modal" data-close-modal aria-label="Close recipe">
-        &times;
-      </button>
-
-      <div id="modalEmoji" class="modal-emoji" aria-hidden="true"></div>
-      <p id="modalCategory" class="eyebrow"></p>
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription" class="modal-description"></p>
-
-      <div class="recipe-details">
-        <div>
-          <h3>Ingredients</h3>
-          <ul id="modalIngredients"></ul>
-        </div>
-
-        <div>
-          <h3>Instructions</h3>
-          <ol id="modalInstructions"></ol>
-        </div>
-      </div>
-
-      <div class="garnish">
-        <strong>Garnish:</strong>
-        <span id="modalGarnish"></span>
-      </div>
-      
-      <div class="source" hidden>
-        <strong>Source:</strong>
-        <a id="modalSource" href="#" target="_blank" rel="noreferrer noopener">Source</a>
-      </div>
-      
-    </article>
-  </div>
 
   <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <p>
