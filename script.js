@@ -197,7 +197,7 @@ const sourceBlock = document.querySelector(".source");
 let activeFilter = "all";
 
 // The recipe grid and modal only exist on some pages; skip that setup when
-// they're missing so the rest of the script (like the cookie banner) still runs.
+// they're missing so the script doesn't error on pages without them.
 const hasRecipeGrid = recipeGrid && searchInput && noResults && modal;
 
 function renderRecipes() {
@@ -321,49 +321,6 @@ if (hasRecipeGrid) {
   });
 }
 
-// Cookie Banner Logic
-function initializeCookieBanner() {
-  const banner = document.getElementById("cookieBanner");
-  if (!banner) return;
-
-  const acceptedKey = "traderjue-cookie-consent";
-  let consent = null;
-  try {
-    consent = localStorage.getItem(acceptedKey);
-  } catch {
-    // Storage can be blocked (private browsing, strict settings); just show the banner.
-  }
-
-  if (consent === "accepted" || consent === "declined") {
-    banner.classList.add("hidden");
-  }
-
-  const acceptBtn = document.getElementById("acceptCookies");
-  if (acceptBtn) {
-    acceptBtn.addEventListener("click", function () {
-      saveConsent(acceptedKey, "accepted");
-      banner.classList.add("hidden");
-    });
-  }
-
-  const declineBtn = document.getElementById("declineCookies");
-  if (declineBtn) {
-    declineBtn.addEventListener("click", function () {
-      saveConsent(acceptedKey, "declined");
-      banner.classList.add("hidden");
-    });
-  }
-}
-
-function saveConsent(key, value) {
-  try {
-    localStorage.setItem(key, value);
-  } catch {
-    // If storage is blocked the banner still hides; it will just reappear next visit.
-  }
-}
-
 if (hasRecipeGrid) {
   renderRecipes();
 }
-initializeCookieBanner();
