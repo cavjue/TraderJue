@@ -514,6 +514,16 @@ h2 {
   margin-bottom: 0.35rem;
 }
 
+.recipe-page p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.recipe-page .sources {
+  list-style: none;
+  padding-left: 0;
+}
+
 .recipe-page a {
   color: var(--coral);
   word-break: break-word;
