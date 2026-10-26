@@ -196,6 +196,10 @@ const sourceBlock = document.querySelector(".source");
 
 let activeFilter = "all";
 
+// The recipe grid and modal only exist on some pages; skip that setup when
+// they're missing so the rest of the script (like the cookie banner) still runs.
+const hasRecipeGrid = recipeGrid && searchInput && noResults && modal;
+
 function renderRecipes() {
   const searchTerm = searchInput.value.toLowerCase().trim();
 
@@ -291,29 +295,31 @@ function capitalize(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
-document.querySelectorAll(".filter").forEach((button) => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".filter").forEach((item) => {
-      item.classList.remove("active");
+if (hasRecipeGrid) {
+  document.querySelectorAll(".filter").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      button.classList.add("active");
+      activeFilter = button.dataset.filter;
+      renderRecipes();
     });
-
-    button.classList.add("active");
-    activeFilter = button.dataset.filter;
-    renderRecipes();
   });
-});
 
-searchInput.addEventListener("input", renderRecipes);
+  searchInput.addEventListener("input", renderRecipes);
 
-document.querySelectorAll("[data-close-modal]").forEach((element) => {
-  element.addEventListener("click", closeModal);
-});
+  document.querySelectorAll("[data-close-modal]").forEach((element) => {
+    element.addEventListener("click", closeModal);
+  });
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeModal();
-  }
-});
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
+}
 
 // Cookie Banner Logic
 function initializeCookieBanner() {
@@ -321,7 +327,12 @@ function initializeCookieBanner() {
   if (!banner) return;
 
   const acceptedKey = "traderjue-cookie-consent";
-  const consent = localStorage.getItem(acceptedKey);
+  let consent = null;
+  try {
+    consent = localStorage.getItem(acceptedKey);
+  } catch {
+    // Storage can be blocked (private browsing, strict settings); just show the banner.
+  }
 
   if (consent === "accepted" || consent === "declined") {
     banner.classList.add("hidden");
@@ -330,7 +341,7 @@ function initializeCookieBanner() {
   const acceptBtn = document.getElementById("acceptCookies");
   if (acceptBtn) {
     acceptBtn.addEventListener("click", function () {
-      localStorage.setItem(acceptedKey, "accepted");
+      saveConsent(acceptedKey, "accepted");
       banner.classList.add("hidden");
     });
   }
@@ -338,11 +349,21 @@ function initializeCookieBanner() {
   const declineBtn = document.getElementById("declineCookies");
   if (declineBtn) {
     declineBtn.addEventListener("click", function () {
-      localStorage.setItem(acceptedKey, "declined");
+      saveConsent(acceptedKey, "declined");
       banner.classList.add("hidden");
     });
   }
 }
 
-renderRecipes();
+function saveConsent(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // If storage is blocked the banner still hides; it will just reappear next visit.
+  }
+}
+
+if (hasRecipeGrid) {
+  renderRecipes();
+}
 initializeCookieBanner();
